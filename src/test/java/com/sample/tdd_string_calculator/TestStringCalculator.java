@@ -1,7 +1,6 @@
 package com.sample.tdd_string_calculator;
 
-import static org.junit.Assert.assertTrue;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -9,9 +8,10 @@ import org.junit.Test;
  */
 public class TestStringCalculator 
 {
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+	@Test
+	public void testAddforEmptyString() {
+		StringCalculator sc = new StringCalculator();
+		Assert.assertEquals(0, sc.addTwoNumber(""), 0);
+	}
+     
 }
