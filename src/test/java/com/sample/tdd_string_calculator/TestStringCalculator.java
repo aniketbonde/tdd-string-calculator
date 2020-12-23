@@ -13,5 +13,11 @@ public class TestStringCalculator
 		StringCalculator sc = new StringCalculator();
 		Assert.assertEquals(0, sc.addTwoNumber(""), 0);
 	}
+	
+	@Test
+	public void testAddforNumber() {
+		StringCalculator sc = new StringCalculator();
+		Assert.assertEquals(1, sc.addTwoNumber("1"), 0);
+	}
      
 }
