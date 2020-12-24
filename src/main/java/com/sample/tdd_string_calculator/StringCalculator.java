@@ -19,6 +19,9 @@ public class StringCalculator
 				if(intN < 0) {
 					negativeNum += String.valueOf(intN+" ");
 				}else {
+					if(intN > 1000) {
+						continue;
+					}
 					addition += intN;
 				}
 			}
@@ -42,7 +45,8 @@ public class StringCalculator
 
 
 	private String[] customDelimiterSeperator(String input, String[] split) {
-		Matcher m = Pattern.compile("//(.)\n(.*)").matcher(input);
+		String pattern = "//(.*)\n(.*)";
+		Matcher m = Pattern.compile(pattern).matcher(input);
 		if(m.matches()) {
 			split = m.group(2).split(Pattern.quote(m.group(1)));
 		}

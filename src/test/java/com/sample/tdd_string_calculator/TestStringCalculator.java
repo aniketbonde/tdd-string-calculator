@@ -82,12 +82,39 @@ public class TestStringCalculator
 	}
      
 	@Test
+	public void testAddforNumbersUsingMultipleLengthCustomDelimiter() {
+		StringCalculator sc = new StringCalculator();
+		try {
+			Assert.assertEquals(20, sc.addTwoNumber("//;;\n5;;5;;2;;8;;"), 0);
+		} catch (NegativeNumberNotAllowedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/*
+	 * @Test public void testAddforNumbersUsingMultipleCustomDelimiter() {
+	 * StringCalculator sc = new StringCalculator(); try { Assert.assertEquals(20,
+	 * sc.addTwoNumber("//;%\n5;5%2;%8"), 0); } catch
+	 * (NegativeNumberNotAllowedException e) { e.printStackTrace(); } }
+	 */
+	
+	@Test
 	public void testAddforNegativeNumbers() {
 		try {
 			StringCalculator sc = new StringCalculator();
-			Assert.assertEquals(20, sc.addTwoNumber("-5\n5\n-10"), 0);
+			Assert.assertEquals(0, sc.addTwoNumber("-5\n5\n-10"), 0);
 		} catch (NegativeNumberNotAllowedException e) {
 			System.out.println(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testAddforignoreNumGreater1000() {
+		StringCalculator sc = new StringCalculator();
+		try {
+			Assert.assertEquals(15, sc.addTwoNumber("//;\n1001;5;2;8;"), 0);
+		} catch (NegativeNumberNotAllowedException e) {
+			e.printStackTrace();
 		}
 	}
 	
