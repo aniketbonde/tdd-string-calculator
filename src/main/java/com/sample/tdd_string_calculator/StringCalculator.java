@@ -3,17 +3,28 @@ package com.sample.tdd_string_calculator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.sample.tdd_string_calculator.exception.NegativeNumberNotAllowedException;
+
 public class StringCalculator 
 {
-	public int addTwoNumber(String input) {
+	public int addTwoNumber(String input) throws NegativeNumberNotAllowedException{
 		int addition = 0;
+		String negativeNum = "";
 		if(input.isEmpty()) {
 			addition = 0;
 		}else {
 			String[] num = delimiterSeperator(input);
 			for (String n : num) {
-				addition += Integer.parseInt(n);
+				int intN = Integer.parseInt(n);
+				if(intN < 0) {
+					negativeNum += String.valueOf(intN+" ");
+				}else {
+					addition += intN;
+				}
 			}
+		}
+		if(!negativeNum.isEmpty()) {
+			throw new NegativeNumberNotAllowedException("Negatives not allowed.."+negativeNum);
 		}
 		return addition;
 	}
@@ -22,13 +33,19 @@ public class StringCalculator
 	private String[] delimiterSeperator(String input) {
 		String[] split = {};
 		if(input.startsWith("//")) {
-			Matcher m = Pattern.compile("//(.)\n(.*)").matcher(input);
-			if(m.matches()) {
-				split = m.group(2).split(m.group(1));
-			}
+			split = customDelimiterSeperator(input, split);
 		}else
 			split = input.split("[\\,\\r\\n]+");
 		
+		return split;
+	}
+
+
+	private String[] customDelimiterSeperator(String input, String[] split) {
+		Matcher m = Pattern.compile("//(.)\n(.*)").matcher(input);
+		if(m.matches()) {
+			split = m.group(2).split(Pattern.quote(m.group(1)));
+		}
 		return split;
 	}
 	
