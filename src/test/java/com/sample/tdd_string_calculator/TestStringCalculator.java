@@ -19,7 +19,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testAddforNumber() {
 		StringCalculator sc = new StringCalculator();
@@ -29,7 +29,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testAddforNumbersUsingCommaSeperate() {
 		StringCalculator sc = new StringCalculator();
@@ -39,7 +39,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testAddforNumbersUsingNewLineEscapeChar() {
 		StringCalculator sc = new StringCalculator();
@@ -49,7 +49,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testAddforNumberUsingMixDelimiter() {
 		StringCalculator sc = new StringCalculator();
@@ -60,7 +60,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}	
-	
+
 	@Test
 	public void testAddforNumbersUsingMixDelimiter() {
 		StringCalculator sc = new StringCalculator();
@@ -70,7 +70,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testAddforNumbersUsingCustomDelimiter() {
 		StringCalculator sc = new StringCalculator();
@@ -80,7 +80,7 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-     
+
 	@Test
 	public void testAddforNumbersUsingMultipleLengthCustomDelimiter() {
 		StringCalculator sc = new StringCalculator();
@@ -90,14 +90,16 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
+
 	/*
 	 * @Test public void testAddforNumbersUsingMultipleCustomDelimiter() {
 	 * StringCalculator sc = new StringCalculator(); try { Assert.assertEquals(20,
-	 * sc.addTwoNumber("//;%\n5;5%2;%8"), 0); } catch
-	 * (NegativeNumberNotAllowedException e) { e.printStackTrace(); } }
+	 * sc.addTwoNumber("//;%\n5;5%2;%8"), 0); }
+	 * catch(NegativeNumberNotAllowedException e) { e.printStackTrace(); } }
 	 */
-	
+
+
 	@Test
 	public void testAddforNegativeNumbers() {
 		try {
@@ -107,7 +109,7 @@ public class TestStringCalculator
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@Test
 	public void testAddforignoreNumGreater1000() {
 		StringCalculator sc = new StringCalculator();
@@ -117,5 +119,5 @@ public class TestStringCalculator
 			e.printStackTrace();
 		}
 	}
-	
+
 }
