@@ -7,7 +7,7 @@ import com.sample.tdd_string_calculator.exception.NegativeNumberNotAllowedExcept
 
 public class StringCalculator 
 {
-	public int addTwoNumber(String input) throws NegativeNumberNotAllowedException{
+	public int add(String input){
 		int addition = 0;
 		String negativeNum = "";
 		if(input.isEmpty()) {
